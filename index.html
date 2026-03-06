@@ -9,9 +9,9 @@
 body{
 margin:0;
 font-family:Arial;
-background:pink;
-text-align:center;
+background:black;
 color:white;
+text-align:center;
 }
 
 .page{
@@ -27,7 +27,7 @@ display:flex;
 }
 
 button{
-padding:12px 25px;
+padding:10px 20px;
 font-size:16px;
 border:none;
 border-radius:8px;
@@ -36,25 +36,27 @@ margin-top:20px;
 }
 
 .letter{
-background:white;
-color:black;
+background:#111;
 padding:20px;
 border-radius:10px;
 width:70%;
 max-width:500px;
+line-height:1.6;
 }
+
+/* photo grid */
 
 .grid{
 display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:10px;
-width:80%;
-max-width:500px;
+width:60%;
+max-width:300px;
 }
 
 .grid img{
 width:100%;
-border-radius:10px;
+border-radius:8px;
 }
 
 </style>
@@ -73,9 +75,10 @@ border-radius:10px;
 <div class="page" id="p2">
 
 <div class="letter">
-<h3>Letter For You 💌</h3>
 
-<p id="msg" style="display:none">
+<h2>Letter For You 💌</h2>
+
+<p>
 
 Happy Birthday Dnyaneshwari 🎂💖  
 
@@ -90,8 +93,6 @@ I don't know who will stay with me in the future but I always want you with me.
 I love you D 💕✨
 
 </p>
-
-<button onclick="openLetter()">Open It</button>
 
 </div>
 
@@ -123,12 +124,7 @@ page++;
 document.getElementById("p"+page).classList.add("active");
 }
 
-function openLetter(){
-document.getElementById("msg").style.display="block";
-}
-
 </script>
 
 </body>
 </html>
-
