@@ -1,32 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Something For You</title>
+<title>Special Gift</title>
 
 <style>
+
 body{
 margin:0;
 font-family:Arial;
-background:#6b5ca5;
-color:white;
+background:pink;
 text-align:center;
-overflow:hidden;
-}
-
-/* lavender background with small white flowers */
-body::before{
-content:"";
-position:fixed;
-width:100%;
-height:100%;
-background-image:
-radial-gradient(white 2px, transparent 2px),
-radial-gradient(white 2px, transparent 2px);
-background-size:40px 40px;
-opacity:0.4;
-z-index:-1;
+color:white;
 }
 
 .page{
@@ -43,28 +28,26 @@ display:flex;
 
 button{
 padding:12px 25px;
+font-size:16px;
 border:none;
 border-radius:8px;
-font-size:16px;
 cursor:pointer;
 margin-top:20px;
 }
 
-/* letter box */
-.letter-box{
+.letter{
 background:white;
 color:black;
 padding:20px;
-border-radius:12px;
+border-radius:10px;
 width:70%;
 max-width:500px;
 }
 
-/* photo grid */
 .grid{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:15px;
+gap:10px;
 width:80%;
 max-width:500px;
 }
@@ -74,15 +57,6 @@ width:100%;
 border-radius:10px;
 }
 
-/* cake */
-.cake{
-font-size:80px;
-}
-
-/* bouquet */
-.bouquet{
-font-size:70px;
-}
 </style>
 </head>
 
@@ -90,81 +64,70 @@ font-size:70px;
 
 <!-- PAGE 1 -->
 <div class="page active" id="p1">
-<h1>Something For You 💜</h1>
-<p>I hope you will love my small gift 🎁</p>
+<h1>Something For You 💝</h1>
+<p>I hope you will love my small gift</p>
 <button onclick="nextPage()">Next</button>
 </div>
 
 <!-- PAGE 2 -->
 <div class="page" id="p2">
-<div class="letter-box">
-<h3>Letter For You 💌</h3>
-<p id="letter" style="display:none">
 
-Happy Birthday Dnyaneshwari 🎂💜<br><br>
+<div class="letter">
+<h3>Letter For You 💌</h3>
+
+<p id="msg" style="display:none">
+
+Happy Birthday Dnyaneshwari 🎂💖  
 
 You are one of the closest friends in my life.  
-You always understand me and guide me whenever I need it.  
-You never leave me alone and you always stand by me.  
+You always understand me and explain things to me whenever I need it.  
 
-You are truly my best friend and you support me in every situation 🤍  
-I don't know who will stay with me in the future,  
-but I always want you by my side.  
+You never leave me alone and you always stay with me 🤍  
 
-I love you D 💖✨
+You are my best friend and you support me in everything.  
+I don't know who will stay with me in the future but I always want you with me.  
+
+I love you D 💕✨
 
 </p>
 
 <button onclick="openLetter()">Open It</button>
+
 </div>
 
 <button onclick="nextPage()">Next</button>
+
 </div>
 
 <!-- PAGE 3 -->
 <div class="page" id="p3">
+
 <h2>Our Memories 📸</h2>
 
 <div class="grid">
-<img src="p1.jpg.jpeg">
-<img src="p2.jpg.jpeg">
-<img src="p3.jpg.jpeg">
-<img src="p4.jpg.jpeg">
+<img src="p1.jpg">
+<img src="p2.jpg">
+<img src="p3.jpg">
+<img src="p4.jpg">
 </div>
 
-<button onclick="nextPage()">Next</button>
-</div>
-
-<!-- PAGE 4 -->
-<div class="page" id="p4">
-<h2>Happy Birthday 🎉</h2>
-<div class="cake">🎂</div>
-<div style="font-size:60px;">🎈🎈🎈</div>
-
-<button onclick="nextPage()">Next</button>
-</div>
-
-<!-- PAGE 5 -->
-<div class="page" id="p5">
-<h2>For You 🌸</h2>
-<div class="bouquet">💐🌿🌸</div>
-<p>Always stay happy 💜</p>
 </div>
 
 <script>
-let current=1;
+
+let page=1;
 
 function nextPage(){
-document.getElementById("p"+current).classList.remove("active");
-current++;
-document.getElementById("p"+current).classList.add("active");
+document.getElementById("p"+page).classList.remove("active");
+page++;
+document.getElementById("p"+page).classList.add("active");
 }
 
 function openLetter(){
-document.getElementById("letter").style.display="block";
+document.getElementById("msg").style.display="block";
 }
+
 </script>
 
 </body>
 </html>
-
