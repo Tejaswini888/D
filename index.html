@@ -1,84 +1,169 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Happy Birthday D..</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Something For You</title>
 
 <style>
 body{
-background:linear-gradient(pink, lavender);
-text-align:center;
+margin:0;
 font-family:Arial;
+background:#6b5ca5;
+color:white;
+text-align:center;
+overflow:hidden;
 }
 
-h1{
-color:red;
-font-size:45px;
-margin-top:40px;
+/* lavender background with small white flowers */
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background-image:
+radial-gradient(white 2px, transparent 2px),
+radial-gradient(white 2px, transparent 2px);
+background-size:40px 40px;
+opacity:0.4;
+z-index:-1;
 }
 
-#msg{
-font-size:24px;
-color:purple;
-margin-top:20px;
+.page{
+display:none;
+height:100vh;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+}
+
+.page.active{
+display:flex;
 }
 
 button{
-padding:15px;
-font-size:20px;
-background:red;
-color:white;
+padding:12px 25px;
 border:none;
-border-radius:10px;
+border-radius:8px;
+font-size:16px;
 cursor:pointer;
-}
-
-img{
-width:250px;
-border-radius:20px;
 margin-top:20px;
 }
-</style>
 
+/* letter box */
+.letter-box{
+background:white;
+color:black;
+padding:20px;
+border-radius:12px;
+width:70%;
+max-width:500px;
+}
+
+/* photo grid */
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+width:80%;
+max-width:500px;
+}
+
+.grid img{
+width:100%;
+border-radius:10px;
+}
+
+/* cake */
+.cake{
+font-size:80px;
+}
+
+/* bouquet */
+.bouquet{
+font-size:70px;
+}
+</style>
 </head>
 
 <body>
 
-<h1>Happy Birthday D 🎂</h1>
+<!-- PAGE 1 -->
+<div class="page active" id="p1">
+<h1>Something For You 💜</h1>
+<p>I hope you will love my small gift 🎁</p>
+<button onclick="nextPage()">Next</button>
+</div>
 
-<img src="photo.jpg">
+<!-- PAGE 2 -->
+<div class="page" id="p2">
+<div class="letter-box">
+<h3>Letter For You 💌</h3>
+<p id="letter" style="display:none">
 
-<br><br>
+Happy Birthday Dnyaneshwari 🎂💜<br><br>
 
-<button onclick="start()">Open Gift 🎁</button>
+You are one of the closest friends in my life.  
+You always understand me and guide me whenever I need it.  
+You never leave me alone and you always stand by me.  
 
-<p id="msg"></p>
+You are truly my best friend and you support me in every situation 🤍  
+I don't know who will stay with me in the future,  
+but I always want you by my side.  
 
-<br>
+I love you D 💖✨
 
-<audio controls autoplay loop>
-<source src="song.mp3.mpeg" type="audio/mpeg">
-</audio>
+</p>
+
+<button onclick="openLetter()">Open It</button>
+</div>
+
+<button onclick="nextPage()">Next</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="p3">
+<h2>Our Memories 📸</h2>
+
+<div class="grid">
+<img src="p1.jpg">
+<img src="p2.jpg">
+<img src="p3.jpg">
+<img src="p4.jpg">
+</div>
+
+<button onclick="nextPage()">Next</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page" id="p4">
+<h2>Happy Birthday 🎉</h2>
+<div class="cake">🎂</div>
+<div style="font-size:60px;">🎈🎈🎈</div>
+
+<button onclick="nextPage()">Next</button>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page" id="p5">
+<h2>For You 🌸</h2>
+<div class="bouquet">💐🌿🌸</div>
+<p>Always stay happy 💜</p>
+</div>
 
 <script>
+let current=1;
 
-let text="You are the most special friend in my life 💖 Happy Birthday Teju! May all your dreams come true 🎉";
-let i=0;
-
-function start(){
-let speed=60;
-function typing(){
-if(i<text.length){
-document.getElementById("msg").innerHTML+=text.charAt(i);
-i++;
-setTimeout(typing,speed);
-}
-}
-typing();
+function nextPage(){
+document.getElementById("p"+current).classList.remove("active");
+current++;
+document.getElementById("p"+current).classList.add("active");
 }
 
+function openLetter(){
+document.getElementById("letter").style.display="block";
+}
 </script>
 
 </body>
-
 </html>
-
