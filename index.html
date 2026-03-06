@@ -1,64 +1,81 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Special Gift</title>
+<title>Birthday Surprise</title>
+
 <style>
 
 body{
+margin:0;
+font-family:Arial;
 background:black;
 color:white;
 text-align:center;
-font-family:Arial;
-margin:0;
 }
 
 .page{
 display:none;
-padding-top:100px;
+height:100vh;
+justify-content:center;
+align-items:center;
+flex-direction:column;
 }
 
 .active{
-display:block;
+display:flex;
 }
 
 button{
 padding:10px 20px;
 font-size:18px;
-border:none;
-background:pink;
-color:black;
 cursor:pointer;
-border-radius:10px;
+margin-top:20px;
 }
 
-img{
-width:120px;
-margin:10px;
+.letter{
+max-width:500px;
+background:#111;
+padding:20px;
 border-radius:10px;
 }
 
 .photos{
-margin-top:40px;
+display:grid;
+grid-template-columns:repeat(2,150px);
+gap:15px;
+margin-top:20px;
+}
+
+.photos img{
+width:150px;
+height:150px;
+object-fit:cover;
+border-radius:10px;
 }
 
 .arrow{
 font-size:40px;
+margin-top:30px;
 cursor:pointer;
-margin-top:40px;
 }
 
+/* flower animation */
+
 .flower{
-font-size:60px;
+font-size:80px;
 animation:grow 3s infinite alternate;
 }
 
 @keyframes grow{
-from{
+
+0%{
 transform:scale(0.5);
 }
-to{
-transform:scale(1.2);
+
+100%{
+transform:scale(1.4);
 }
+
 }
 
 </style>
@@ -70,11 +87,9 @@ transform:scale(1.2);
 
 <div class="page active" id="page1">
 
-<h1>Something for you ❤️</h1>
+<h1>Something For You</h1>
 
 <p>I hope you will love my small gift</p>
-
-<br>
 
 <button onclick="nextPage(2)">Next</button>
 
@@ -85,19 +100,26 @@ transform:scale(1.2);
 
 <div class="page" id="page2">
 
-<h1>Letter For You 💌</h1>
+<h2>Letter For You 💌</h2>
 
-<p style="width:70%;margin:auto;font-size:20px">
+<div class="letter">
 
-You are very special to me.  
-Every moment with you feels beautiful.  
-This is just a small gift but it comes from my heart.  
+<p>
+Happy Birthday Dnyaneshwari 🎉❤️  
+You are my very close friend.  
+You always understand me and explain things to me.  
+You never leave me alone and you are my best friend.  
 
-I hope this brings a smile to your face 😊
+You support me in everything and I am really lucky to have you in my life.  
 
+I don't know who will stay in my life in future but I always want you with me.  
+
+I love you D 💖
 </p>
 
-<div class="arrow" onclick="nextPage(3)">⬇</div>
+</div>
+
+<button onclick="nextPage(3)">Next</button>
 
 </div>
 
@@ -106,23 +128,31 @@ I hope this brings a smile to your face 😊
 
 <div class="page" id="page3">
 
-<h1>Memories 📸</h1>
+<h2>Our Memories 📸</h2>
 
 <div class="photos">
 
-<img src="photo1.jpg.jpeg">
-<img src="photo2.jpg.jpeg">
-<br>
-<img src="photo3.jpg.jpeg">
-<img src="photo4.jpg.jpeg">
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+<img src="photo4.jpg">
 
 </div>
 
-<br><br>
+<div class="arrow" onclick="nextPage(4)">⬇</div>
+
+</div>
+
+
+<!-- PAGE 4 -->
+
+<div class="page" id="page4">
+
+<h2>Flowers For You 🌸</h2>
 
 <div class="flower">🌸</div>
 
-<p>For You</p>
+<p>This flower is for you</p>
 
 </div>
 
@@ -131,11 +161,11 @@ I hope this brings a smile to your face 😊
 
 function nextPage(page){
 
-document.querySelectorAll(".page").forEach(p=>{
-p.classList.remove("active")
-})
+let pages=document.querySelectorAll(".page");
 
-document.getElementById("page"+page).classList.add("active")
+pages.forEach(p=>p.classList.remove("active"));
+
+document.getElementById("page"+page).classList.add("active");
 
 }
 
