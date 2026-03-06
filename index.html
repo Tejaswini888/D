@@ -1,62 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title>Special Gift</title>
-
 <style>
 
 body{
-margin:0;
-font-family:Arial;
 background:black;
 color:white;
 text-align:center;
+font-family:Arial;
+margin:0;
 }
 
 .page{
 display:none;
-height:100vh;
-align-items:center;
-justify-content:center;
-flex-direction:column;
+padding-top:100px;
 }
 
-.page.active{
-display:flex;
+.active{
+display:block;
 }
 
 button{
 padding:10px 20px;
-font-size:16px;
+font-size:18px;
 border:none;
-border-radius:8px;
+background:pink;
+color:black;
 cursor:pointer;
-margin-top:20px;
-}
-
-.letter{
-background:#111;
-padding:20px;
 border-radius:10px;
-width:70%;
-max-width:500px;
-line-height:1.6;
 }
 
-/* photo grid */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px;
-width:60%;
-max-width:300px;
+img{
+width:120px;
+margin:10px;
+border-radius:10px;
 }
 
-.grid img{
-width:100%;
-border-radius:8px;
+.photos{
+margin-top:40px;
+}
+
+.arrow{
+font-size:40px;
+cursor:pointer;
+margin-top:40px;
+}
+
+.flower{
+font-size:60px;
+animation:grow 3s infinite alternate;
+}
+
+@keyframes grow{
+from{
+transform:scale(0.5);
+}
+to{
+transform:scale(1.2);
+}
 }
 
 </style>
@@ -65,63 +67,76 @@ border-radius:8px;
 <body>
 
 <!-- PAGE 1 -->
-<div class="page active" id="p1">
-<h1>Something For You 💝</h1>
+
+<div class="page active" id="page1">
+
+<h1>Something for you ❤️</h1>
+
 <p>I hope you will love my small gift</p>
-<button onclick="nextPage()">Next</button>
+
+<br>
+
+<button onclick="nextPage(2)">Next</button>
+
 </div>
 
+
 <!-- PAGE 2 -->
-<div class="page" id="p2">
 
-<div class="letter">
+<div class="page" id="page2">
 
-<h2>Letter For You 💌</h2>
+<h1>Letter For You 💌</h1>
 
-<p>
+<p style="width:70%;margin:auto;font-size:20px">
 
-Happy Birthday Dnyaneshwari 🎂💖  
+You are very special to me.  
+Every moment with you feels beautiful.  
+This is just a small gift but it comes from my heart.  
 
-You are one of the closest friends in my life.  
-You always understand me and explain things to me whenever I need it.  
-
-You never leave me alone and you always stay with me 🤍  
-
-You are my best friend and you support me in everything.  
-I don't know who will stay with me in the future but I always want you with me.  
-
-I love you D 💕✨
+I hope this brings a smile to your face 😊
 
 </p>
 
-</div>
-
-<button onclick="nextPage()">Next</button>
+<div class="arrow" onclick="nextPage(3)">⬇</div>
 
 </div>
+
 
 <!-- PAGE 3 -->
-<div class="page" id="p3">
 
-<h2>Our Memories 📸</h2>
+<div class="page" id="page3">
 
-<div class="grid">
-<img src="p1.jpg.jpeg">
-<img src="p2.jpg.jpeg">
-<img src="p3.jpg.jpeg">
-<img src="p4.jpg.jpeg">
+<h1>Memories 📸</h1>
+
+<div class="photos">
+
+<img src="photo1.jpg.jpeg">
+<img src="photo2.jpg.jpeg">
+<br>
+<img src="photo3.jpg.jpeg">
+<img src="photo4.jpg.jpeg">
+
 </div>
 
+<br><br>
+
+<div class="flower">🌸</div>
+
+<p>For You</p>
+
 </div>
+
 
 <script>
 
-let page=1;
+function nextPage(page){
 
-function nextPage(){
-document.getElementById("p"+page).classList.remove("active");
-page++;
-document.getElementById("p"+page).classList.add("active");
+document.querySelectorAll(".page").forEach(p=>{
+p.classList.remove("active")
+})
+
+document.getElementById("page"+page).classList.add("active")
+
 }
 
 </script>
